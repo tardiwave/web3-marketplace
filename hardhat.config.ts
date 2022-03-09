@@ -26,9 +26,11 @@ const config: HardhatUserConfig = {
   solidity: "0.8.4",
   networks: {
     ropsten: {
-      url: process.env.ROPSTEN_URL || "",
+      url: process.env.NEXT_PUBLIC_ROPSTEN_URL || "",
       accounts:
-        process.env.PRIVATE_KEY !== undefined ? [`0x${process.env.PRIVATE_KEY}`] : [],
+        process.env.PRIVATE_KEY !== undefined
+          ? [`0x${process.env.PRIVATE_KEY}`]
+          : [],
     },
   },
   gasReporter: {
