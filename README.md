@@ -33,7 +33,7 @@ Run the web app (if you already have thing in your .env, comment it before)
 Create an app on [Alchemy](https://www.alchemy.com/)
 Fill the `.env` file with your informations:
 
-```
+```dosini
 ETHERSCAN_API_KEY=ABC123ABC123ABC123ABC123ABC123ABC1
 #metamask account public key
 PRIVATE_KEY=0xabc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc1
