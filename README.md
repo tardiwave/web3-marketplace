@@ -21,7 +21,7 @@ First we have to generate a test environment with fake accounts
 Add one of the accounts on your metamask (choose the localhost 8545 network)
 keep it alive and run in an other tab
 
-`$ npx hardhat run scripts/deploy.js --network localhost`
+`$ npx hardhat run scripts/deploy.ts --network localhost`
 
 Run the web app (if you already have thing in your .env, comment it before)
 
@@ -66,7 +66,7 @@ In the `.env` file set `NEXT_PUBLIC_CHAIN_ENV` as `test`
 - In the `.env` file set `NEXT_PUBLIC_TESTNET` as `POLYGON_ALCHEMY`
 - `$ npx hardhat run scripts/deploy.ts --network mumbai`
 
-### Now you can run the app
+Now you can run the app
 
 `$ yarn dev`
 
