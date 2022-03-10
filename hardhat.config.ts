@@ -26,7 +26,20 @@ const config: HardhatUserConfig = {
   solidity: "0.8.4",
   networks: {
     ropsten: {
-      url: process.env.NEXT_PUBLIC_ROPSTEN_URL || "",
+      url:
+        process.env.NEXT_PUBLIC_CHAIN_ENV === "test"
+          ? process.env.NEXT_PUBLIC_ROPSTEN_URL
+          : process.env.NEXT_PUBLIC_ETHER_MAINNET_URL,
+      accounts:
+        process.env.PRIVATE_KEY !== undefined
+          ? [`0x${process.env.PRIVATE_KEY}`]
+          : [],
+    },
+    mumbai: {
+      url:
+        process.env.NEXT_PUBLIC_CHAIN_ENV === "test"
+          ? process.env.NEXT_PUBLIC_POLYGON_MUMBAI_ALCHEMY_URL
+          : process.env.NEXT_PUBLIC_POLYGON_MAINNET_ALCHEMY_URL,
       accounts:
         process.env.PRIVATE_KEY !== undefined
           ? [`0x${process.env.PRIVATE_KEY}`]

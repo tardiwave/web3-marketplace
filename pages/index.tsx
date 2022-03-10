@@ -17,12 +17,18 @@ const Home: NextPage = () => {
   const loadNFTs = async () => {
     /* create a generic provider and query for unsold market items */
     const provider = new ethers.providers.JsonRpcProvider(
-      process.env.NEXT_PUBLIC_ROPSTEN_URL
+      process.env.NEXT_PUBLIC_CHAIN_ENV === "test"
+        ? process.env.NEXT_PUBLIC_TESTNET === "POLYGON_ALCHEMY"
+          ? process.env.NEXT_PUBLIC_POLYGON_MUMBAI_ALCHEMY_URL
+          : process.env.NEXT_PUBLIC_ROPSTEN_URL
+        : process.env.NEXT_PUBLIC_TESTNET === "POLYGON_ALCHEMY"
+        ? process.env.NEXT_PUBLIC_POLYGON_MAINNET_ALCHEMY_URL
+        : process.env.NEXT_PUBLIC_ETHER_MAINNET_URL
     );
-     const contract = NFTMarketplace__factory.connect(
-       marketplaceAddress,
-       provider
-     );
+    const contract = NFTMarketplace__factory.connect(
+      marketplaceAddress,
+      provider
+    );
     const data = await contract.fetchMarketItems();
 
     /*
